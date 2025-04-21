@@ -1,0 +1,375 @@
+/* style.css */
+:root {
+    /* Color Palette */
+    --primary-color: #4a90e2; /* Blue */
+    --primary-hover: #3a7ac0;
+    --primary-active: #2e67a4;
+    --secondary-color: #e94e77; /* Pink/Red */
+    --secondary-hover: #d14268;
+    --secondary-active: #b9375a;
+    --accent-color: #f5a623;  /* Orange accent */
+    --success-color: #4caf50; /* Green */
+    --success-bg: rgba(76, 175, 80, 0.1);
+    --error-color: #f44336;   /* Red */
+    --error-bg: rgba(244, 67, 54, 0.1);
+    --warning-color: #ff9800; /* Orange */
+    --warning-bg: rgba(255, 152, 0, 0.1);
+    --info-color: #2196f3;    /* Blue */
+    --info-bg: rgba(33, 150, 243, 0.1);
+
+    --background-color: #f4f6f8; /* Lighter gray */
+    --container-bg: #ffffff;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --text-light: #f8f9fa;
+    --border-color: #e0e0e0;
+    --input-bg: #fdfdfd;
+
+    /* Typography */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-family-mono: 'Roboto Mono', monospace;
+
+    /* Sizing & Effects */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --box-shadow-light: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --box-shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.2s;
+}
+
+/* --- General Styles --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center container horizontally */
+}
+
+.app-container {
+    max-width: 800px; /* Slightly wider */
+    width: 100%;
+    margin: 30px auto;
+    background-color: var(--container-bg);
+    border-radius: var(--border-radius-lg); /* Larger radius */
+    box-shadow: var(--box-shadow-medium);
+    overflow: hidden;
+}
+
+/* --- Header --- */
+.app-header {
+    text-align: center;
+    padding: 35px 20px 25px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6fa3e8 100%); /* Gradient header */
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700; /* Bolder */
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    vertical-align: middle;
+    margin-left: 10px;
+    opacity: 0.9;
+    transform: rotate(-10deg); /* Slight tilt */
+    display: inline-block;
+}
+
+.tagline {
+    font-size: clamp(1rem, 3vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    font-weight: 400;
+}
+
+/* --- Main Converter Section --- */
+.converter-section {
+    padding: 30px 40px;
+}
+
+.input-area {
+    margin-bottom: 30px;
+}
+
+.input-label {
+    display: block;
+    font-weight: 600; /* Bolder label */
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-size: 1.05rem;
+}
+
+/* Wrapper for textarea and clear button */
+.textarea-wrapper {
+    position: relative;
+}
+
+textarea#markdownInput {
+    width: 100%;
+    padding: 15px;
+    padding-right: 45px; /* Make space for clear button */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-family-mono); /* Monospace for Markdown */
+    font-size: 0.95rem;
+    line-height: 1.6; /* Increased line height */
+    resize: vertical;
+    background-color: var(--input-bg);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    min-height: 280px;
+    box-shadow: var(--box-shadow-light);
+}
+
+textarea#markdownInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2), var(--box-shadow-light);
+}
+
+/* Clear Button */
+.clear-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    border-radius: 50%;
+    transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.clear-button:hover {
+    color: var(--error-color);
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* --- Options Group --- */
+.options-group {
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    background-color: #f9f9f9; /* Slight background differentiation */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+}
+
+fieldset.pdf-options {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Space between items */
+    flex-wrap: wrap;
+}
+
+fieldset.pdf-options legend {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px; /* Space below legend if wrapping */
+    padding-right: 15px;
+    width: auto; /* Allow flexbox to size */
+    float: none; /* Override default fieldset legend behavior */
+}
+
+/* Custom Radio Buttons */
+.radio-group {
+    display: inline-flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    opacity: 0; /* Hide original */
+    position: fixed;
+    width: 0;
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--container-bg);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-size: 0.95rem;
+    gap: 8px;
+}
+
+.radio-group label i {
+    color: var(--text-muted);
+    transition: color var(--transition-speed) ease;
+}
+
+/* Style when checked */
+.radio-group input[type="radio"]:checked + label {
+    background-color: rgba(74, 144, 226, 0.1);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.radio-group input[type="radio"]:checked + label i {
+    color: var(--primary-color);
+}
+
+.radio-group input[type="radio"]:focus + label { /* Focus state */
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.radio-group label:hover {
+    border-color: var(--primary-hover);
+}
+
+
+/* --- Action Buttons --- */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.action-button {
+    padding: 12px 25px;
+    font-size: 1.05rem; /* Slightly larger */
+    font-weight: 600; /* Bolder */
+    font-family: var(--font-family);
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: var(--text-light);
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: var(--box-shadow-light);
+    min-width: 220px; /* Ensure enough space */
+    position: relative; /* Needed for spinner positioning if done absolutely */
+    overflow: hidden; /* Hide spinner initially if needed */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-button:hover:not(:disabled) {
+    box-shadow: var(--box-shadow-medium);
+    transform: translateY(-2px);
+}
+
+.action-button:active:not(:disabled) {
+    transform: scale(0.98) translateY(-1px);
+    box-shadow: var(--box-shadow-light);
+}
+
+.action-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#convertToWordBtn { background-color: var(--primary-color); }
+#convertToWordBtn:hover:not(:disabled) { background-color: var(--primary-hover); }
+#convertToWordBtn:active:not(:disabled) { background-color: var(--primary-active); }
+
+#convertToPdfBtn { background-color: var(--secondary-color); }
+#convertToPdfBtn:hover:not(:disabled) { background-color: var(--secondary-hover); }
+#convertToPdfBtn:active:not(:disabled) { background-color: var(--secondary-active); }
+
+/* Button Content Spans (Icon, Text, Spinner) */
+.button-icon, .button-text, .button-spinner {
+    display: inline-block;
+    transition: display 0.1s ease; /* Smooth hiding/showing */
+}
+.button-icon i { font-size: 1.1em; }
+.button-spinner { display: none; /* Hidden by default */ }
+.button-spinner i { font-size: 1.2em; }
+
+/* --- Status Area --- */
+.status-area {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
+    min-height: 2.8em; /* Adjusted min height */
+    padding: 12px 20px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease, visibility 0s linear var(--transition-speed), background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-size: 0.95rem;
+    border: 1px solid transparent; /* Base border */
+}
+
+.status-area.visible {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.status-area i { /* Style status icons */
+    font-size: 1.2em;
+}
+
+.status-area.processing {
+    color: var(--info-color);
+    background-color: var(--info-bg);
+    border-color: var(--info-color);
+}
+.status-area.error {
+    color: var(--error-color);
+    background-color: var(--error-bg);
+    border-color: var(--error-color);
+}
+.status-area.success {
+    color: var(--success-color);
+    background-color: var(--success-bg);
+    border-color: var(--success-color);
+}
+
+/* --- Footer --- */
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    background-color: #f0f2f5; /* Slightly darker footer bg */
+    margin-top: auto; /* Push footer down */
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 700px) {
+    .converter-section { padding: 25px 30px; }
+    fieldset.pdf-options { flex-direction: column; align-items: flex-start; gap: 15px; }
+    fieldset.pdf-options legend { margin-bottom: 15px; }
+}
+
+@media (max-width: 500px) {
+    body { padding: 10px; }
+    .app-container { margin: 15px auto; }
+    .converter-section { padding: 20px; }
+    .action-buttons { flex-direction: column; gap: 15px; align-items: stretch; }
+    .action-button { width: 100%; min-width: unset; }
+    .app-header { padding: 25px 15px 20px; }
+}

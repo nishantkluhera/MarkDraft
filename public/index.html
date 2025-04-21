@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>MarkDraft - AI Markdown to Pro Documents</title> <!-- Slightly updated Title -->
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>MarkDraft <i class="fa-solid fa-wand-magic-sparkles logo-icon"></i></h1>
+            <p class="tagline">Your AI's Markdown, Perfectly Formatted.</p>
+        </header>
+
+        <main class="converter-section">
+            <div class="input-area">
+                <label for="markdownInput" class="input-label">Paste your Markdown content:</label>
+                <div class="textarea-wrapper">
+                    <textarea id="markdownInput" placeholder="## Your Title..." rows="16" aria-label="Markdown Input Area"></textarea>
+                    <button id="clearBtn" class="clear-button" title="Clear Text">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Options Section -->
+            <div class="options-group">
+                <fieldset class="pdf-options">
+                    <legend>PDF Options</legend>
+                    <div class="radio-group">
+                        <input type="radio" id="orientationPortrait" name="pdfOrientation" value="portrait" checked>
+                        <label for="orientationPortrait">
+                            <i class="fa-solid fa-file"></i> Portrait
+                        </label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="orientationLandscape" name="pdfOrientation" value="landscape">
+                        <label for="orientationLandscape">
+                            <i class="fa-solid fa-file-lines"></i> Landscape
+                        </label>
+                    </div>
+                </fieldset>
+                <!-- Add other options here in the future -->
+            </div>
+
+            <div class="action-buttons">
+                <button id="convertToWordBtn" class="action-button">
+                    <span class="button-icon"><i class="fa-solid fa-file-word"></i></span>
+                    <span class="button-text">Create Word (.docx)</span>
+                    <span class="button-spinner"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                </button>
+                <button id="convertToPdfBtn" class="action-button">
+                    <span class="button-icon"><i class="fa-solid fa-file-pdf"></i></span>
+                    <span class="button-text">Generate PDF</span>
+                    <span class="button-spinner"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                </button>
+            </div>
+
+            <div id="statusMessage" class="status-area" aria-live="polite">
+                <!-- Status messages will appear here -->
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2023 MarkDraft. Effortless document conversion.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
