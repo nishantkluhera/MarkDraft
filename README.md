@@ -108,8 +108,8 @@ To run MarkDraft on your local machine for development or testing:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone YOUR_GITHUB_REPO_URL
-    cd markdraft-converter # Or your repository's folder name
+    git clone https://github.com/nishantkluhera/MarkDraft.git
+    cd MarkDraft
     ```
 
 2.  **Install Dependencies:**
@@ -131,7 +131,7 @@ To run MarkDraft on your local machine for development or testing:
 
 ## ☁️ Deployment (Render) <a name="deployment-render"></a>
 
-This project is designed for easy deployment on platforms like Render. Here’s how to deploy your own instance on Render's free tier:
+This project is designed for easy deployment on platforms like Render. Here's how to deploy your own instance on Render's free tier:
 
 1.  **Push to GitHub/GitLab:** Make sure your latest code (including the `package-lock.json` file) is pushed to a repository on GitHub or GitLab.
 2.  **Create Render Account:** Sign up or log in at [render.com](https://render.com/).
@@ -173,7 +173,7 @@ Contributions are welcome! Whether it's bug fixes, feature enhancements, or docu
 **How to Contribute:**
 
 1.  **Fork the repository:** Click the "Fork" button on GitHub.
-2.  **Clone your fork:** `git clone https://github.com/YOUR_USERNAME/markdraft-converter.git`
+2.  **Clone your fork:** `git clone https://github.com/YOUR_USERNAME/MarkDraft.git`
 3.  **Create a new branch:** `git checkout -b feature/your-feature-name` or `fix/your-bug-fix-name`
 4.  **Make your changes.**
 5.  **Install/Test:** Ensure `npm install` runs correctly and test your changes locally (`npm start`).
