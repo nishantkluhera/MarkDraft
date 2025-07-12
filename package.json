@@ -1,11 +1,23 @@
 {
     "name": "markdraft-converter",
     "version": "1.0.0",
-    "description": "Effortless Markdown to Polished Word & PDF Documents.",
+    "description": "Simple web app to convert Markdown to Word and PDF documents",
     "main": "server.js",
     "scripts": {
       "start": "node server.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "dev": "nodemon server.js",
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage",
+      "test:ci": "jest --ci --coverage --watchAll=false",
+      "lint": "eslint .",
+      "lint:fix": "eslint . --fix",
+      "format": "prettier --write .",
+      "format:check": "prettier --check .",
+      "docker:build": "docker build -t markdraft .",
+      "docker:run": "docker run -p 3000:3000 markdraft",
+      "docker:compose": "docker-compose up -d",
+      "docker:compose:down": "docker-compose down"
     },
     "keywords": [
       "markdown",
@@ -13,16 +25,42 @@
       "word",
       "pdf",
       "docx",
-      "llm",
-      "ai",
-      "formatter"
+      "document"
     ],
     "author": "Nishant Luhera",
     "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nishantkluhera/MarkDraft.git"
+    },
+    "homepage": "https://github.com/nishantkluhera/MarkDraft#readme",
+    "bugs": {
+      "url": "https://github.com/nishantkluhera/MarkDraft/issues"
+    },
+    "engines": {
+      "node": ">=18.0.0",
+      "npm": ">=8.0.0"
+    },
     "dependencies": {
       "express": "^4.18.2",
       "html-to-docx": "^1.8.0",
       "markdown-it": "^13.0.1",
-      "puppeteer": "^21.3.8"
+      "puppeteer": "^21.3.8",
+      "helmet": "^8.1.0",
+      "cors": "^2.8.5",
+      "express-rate-limit": "^7.5.1",
+      "express-validator": "^7.2.1",
+      "dotenv": "^17.2.0",
+      "compression": "^1.8.0",
+      "morgan": "^1.10.0",
+      "winston": "^3.17.0"
+    },
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "supertest": "^6.3.3",
+      "@types/jest": "^29.5.8",
+      "nodemon": "^3.0.1",
+      "eslint": "^8.54.0",
+      "prettier": "^3.1.0"
     }
   }
