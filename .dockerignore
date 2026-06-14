@@ -120,6 +120,11 @@ test/
 tests/
 spec/
 __tests__/
+__mocks__/
+jest.config.js
+babel.config.js
+.eslintrc.js
+.prettierrc.js
 
 # Temporary files
 tmp/
