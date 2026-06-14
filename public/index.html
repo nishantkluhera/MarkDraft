@@ -3,65 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert Markdown to Word documents and PDFs easily">
+    <meta name="description" content="Convert Markdown to Word documents and PDFs with a live preview. No uploads, no sign-up, nothing stored.">
     <meta name="author" content="Nishant Luhera">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
-    
-    <title>MarkDraft - Convert Markdown to Documents</title>
+
+    <title>MarkDraft - Convert Markdown to Word &amp; PDF</title>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
+    <!-- Inline icon sprite (no third-party icon font / CDN). -->
+    <svg width="0" height="0" class="svg-sprite" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14l.8 2 .2-.1 1.8.8-1.8.8-.8 2-.8-2-1.8-.8 1.8-.8z"/></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+            <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 7.5a6 6 0 1 0-12 0c0 1.5.5 2.7 1.5 4 .8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></symbol>
+            <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/></symbol>
+            <symbol id="i-eraser" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6M14 11v6"/></symbol>
+            <symbol id="i-markdown" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15V9l3 3 3-3v6"/><path d="M17 9v4M15 11l2 2 2-2"/></symbol>
+            <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+            <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></symbol>
+            <symbol id="i-loader" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></symbol>
+            <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></symbol>
+            <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+        </defs>
+    </svg>
+
     <div class="app-container">
         <header class="app-header">
-            <h1>MarkDraft <i class="fa-solid fa-wand-magic-sparkles logo-icon"></i></h1>
-            <p class="tagline">Convert Markdown to Professional Documents</p>
+            <button id="themeToggle" class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle color theme">
+                <svg class="icon"><use href="#i-moon"></use></svg>
+            </button>
+            <h1>MarkDraft <svg class="icon logo-icon"><use href="#i-sparkles"></use></svg></h1>
+            <p class="tagline">Convert Markdown to Word &amp; PDF, with a live preview</p>
         </header>
 
         <main class="converter-section" id="main-content">
-            <section class="input-area">
-                <label for="markdownInput" class="input-label">
-                    Paste your Markdown content:
-                </label>
-                <div class="textarea-wrapper">
-                    <textarea 
-                        id="markdownInput" 
-                        placeholder="## Your Title&#10;&#10;Enter your markdown content here...&#10;&#10;**Bold text** and *italic text*&#10;&#10;- List item 1&#10;- List item 2&#10;&#10;```&#10;code block&#10;```" 
-                        rows="16" 
+            <div class="toolbar" role="toolbar" aria-label="Editor actions">
+                <div class="toolbar-group">
+                    <button id="sampleBtn" class="toolbar-button" type="button" title="Load sample Markdown">
+                        <svg class="icon"><use href="#i-bulb"></use></svg> <span>Load sample</span>
+                    </button>
+                    <button id="uploadBtn" class="toolbar-button" type="button" title="Open a .md file">
+                        <svg class="icon"><use href="#i-folder"></use></svg> <span>Upload .md</span>
+                    </button>
+                    <input type="file" id="fileInput" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden>
+                    <button id="clearBtn" class="toolbar-button" type="button" title="Clear the editor">
+                        <svg class="icon"><use href="#i-eraser"></use></svg> <span>Clear</span>
+                    </button>
+                </div>
+                <div class="toolbar-group" id="viewTabs" aria-label="Mobile view switch">
+                    <button id="editTab" class="view-tab active" type="button" data-view="edit">Edit</button>
+                    <button id="previewTab" class="view-tab" type="button" data-view="preview">Preview</button>
+                </div>
+            </div>
+
+            <section class="editor-grid" aria-label="Markdown editor and preview">
+                <div class="pane editor-pane" data-pane="edit">
+                    <label for="markdownInput" class="pane-label">
+                        <svg class="icon"><use href="#i-markdown"></use></svg> Markdown
+                    </label>
+                    <textarea
+                        id="markdownInput"
+                        placeholder="# Your Title&#10;&#10;Start typing Markdown here. The preview on the right updates as you type.&#10;&#10;**Bold**, *italic*, and `inline code`.&#10;&#10;- A list item&#10;- Another one&#10;&#10;> A blockquote&#10;&#10;```js&#10;console.log('code blocks too');&#10;```"
+                        rows="18"
                         spellcheck="false"
                         autocomplete="off"
                         autocorrect="off"
                         autocapitalize="off"
+                        aria-describedby="docStats"
                     ></textarea>
-                    <button 
-                        id="clearBtn" 
-                        class="clear-button" 
-                        title="Clear all text"
-                        type="button"
-                    >
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                </div>
+
+                <div class="pane preview-pane" data-pane="preview">
+                    <span class="pane-label">
+                        <svg class="icon"><use href="#i-eye"></use></svg> Preview
+                    </span>
+                    <div id="previewContent" class="preview-content markdown-body" aria-live="polite">
+                        <p class="preview-empty">Your formatted document will appear here.</p>
+                    </div>
                 </div>
             </section>
 
+            <div id="docStats" class="doc-stats" aria-live="polite">
+                <span id="wordCount">0 words</span>
+                <span class="dot">&middot;</span>
+                <span id="charCount">0 characters</span>
+            </div>
+
             <section class="options-group">
                 <fieldset class="pdf-options">
-                    <legend>PDF Options</legend>
+                    <legend>PDF page orientation</legend>
                     <div class="radio-group">
                         <input type="radio" id="orientationPortrait" name="pdfOrientation" value="portrait" checked>
                         <label for="orientationPortrait">
-                            <i class="fa-solid fa-file"></i> Portrait
+                            <svg class="icon"><use href="#i-file"></use></svg> Portrait
                         </label>
                     </div>
                     <div class="radio-group">
                         <input type="radio" id="orientationLandscape" name="pdfOrientation" value="landscape">
                         <label for="orientationLandscape">
-                            <i class="fa-solid fa-file-lines"></i> Landscape
+                            <svg class="icon"><use href="#i-file-text"></use></svg> Landscape
                         </label>
                     </div>
                 </fieldset>
@@ -70,21 +118,21 @@
             <section class="action-buttons">
                 <button id="convertToWordBtn" class="action-button" type="button">
                     <span class="button-icon">
-                        <i class="fa-solid fa-file-word"></i>
+                        <svg class="icon"><use href="#i-download"></use></svg>
                     </span>
-                    <span class="button-text">Create Word (.docx)</span>
+                    <span class="button-text">Download Word (.docx)</span>
                     <span class="button-spinner">
-                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <svg class="icon"><use href="#i-loader"></use></svg>
                     </span>
                 </button>
-                
+
                 <button id="convertToPdfBtn" class="action-button" type="button">
                     <span class="button-icon">
-                        <i class="fa-solid fa-file-pdf"></i>
+                        <svg class="icon"><use href="#i-download"></use></svg>
                     </span>
-                    <span class="button-text">Generate PDF</span>
+                    <span class="button-text">Download PDF</span>
                     <span class="button-spinner">
-                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <svg class="icon"><use href="#i-loader"></use></svg>
                     </span>
                 </button>
             </section>
@@ -95,7 +143,7 @@
         </main>
 
         <footer class="app-footer">
-            <p>© 2024 MarkDraft. <a href="https://github.com/nishantkluhera/MarkDraft" target="_blank" rel="noopener noreferrer">Open Source</a></p>
+            <p>&copy; 2024-2026 MarkDraft. Everything runs in memory; nothing is stored. <a href="https://github.com/nishantkluhera/MarkDraft" target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>
         </footer>
     </div>
 
