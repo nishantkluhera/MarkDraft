@@ -19,7 +19,7 @@ module.exports = {
     'no-console': 'warn',
     'no-debugger': 'error',
     'no-alert': 'error',
-    
+
     // Code style
     'indent': ['error', 2],
     'quotes': ['error', 'single'],
@@ -27,13 +27,13 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'no-trailing-spaces': 'error',
     'eol-last': 'error',
-    
+
     // Best practices
     'prefer-const': 'error',
     'no-var': 'error',
     'object-shorthand': 'error',
     'prefer-arrow-callback': 'error',
-    
+
     // Security
     'no-eval': 'error',
     'no-implied-eval': 'error',
@@ -47,4 +47,4 @@ module.exports = {
       }
     }
   ]
-}; 
+};

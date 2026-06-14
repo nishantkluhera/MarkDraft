@@ -20,4 +20,4 @@ console.log = (...args) => {
 // Clean up after tests
 afterAll(() => {
   console.log = originalLog;
-}); 
+});
