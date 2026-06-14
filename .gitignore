@@ -128,9 +128,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# IDE files
+# IDE / editor / tooling
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 *~
